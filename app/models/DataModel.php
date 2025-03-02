@@ -60,4 +60,14 @@ class DataModel
 
         return $this->db->rowCount();
     }
+
+    public function getDataBySearch()
+    {
+        $search_keyword = $_POST['search_keyword'];
+        $query = "SELECT * FROM " . $this->table . " WHERE name LIKE :search_keyword OR nim LIKE :search_keyword OR email LIKE :search_keyword OR program LIKE :search_keyword";
+        $this->db->query($query);
+        $this->db->bind(':search_keyword', "%$search_keyword%");
+
+        return $this->db->resultSet();
+    }
 }

@@ -2,9 +2,19 @@
     <?php Flasher::flash(); ?>
     <h2>List of Data</h2>
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary mb-2 addModalBtn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <button type="button" class="btn btn-primary mb-2 addModalBtn bnt-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Add Data
     </button>
+
+    <div class="row col-lg-6">
+        <form action="<?= BASEURL; ?>/data/search" method="post">
+            <div class="input-group mb-3">
+                <input type="search" name="search_keyword" id="search_keyword" class="form-control" autocomplete="off" placeholder="Search for Data" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <button class="btn btn-primary" type="submit" id="search-btn">Search</button>
+            </div>
+        </form>
+    </div>
+
 
     <table class="table table-hover">
         <thead>

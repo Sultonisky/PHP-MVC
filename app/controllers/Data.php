@@ -71,4 +71,13 @@ class Data extends Controller
             exit;
         }
     }
+
+    public function search()
+    {
+        $data['judul'] = 'List Data';
+        $data['list_data'] = $this->Model('DataModel')->getDataBySearch();
+        $this->view('layout/header', $data);
+        $this->view('data/index', $data);
+        $this->view('layout/footer');
+    }
 }
